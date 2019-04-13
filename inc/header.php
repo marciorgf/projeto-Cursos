@@ -6,7 +6,6 @@
         "NivelAcesso" => mt_rand(0, 1)
     ];
 ?>
-
 <header>
     <nav class="navbar navbar-default">
         <div class="container-fluid">

@@ -9,9 +9,7 @@ $cursos = [
         "UX" => ["Curso de User Experiênce", 9000.98, "ux.jpg", "ux"],
         "Mobile Android" => ["curso de apps", 1000.97, "android.png", "android"]
     ];
-
     
-
 ?>
     <div class="container">
 
