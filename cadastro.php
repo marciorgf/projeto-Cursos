@@ -7,13 +7,19 @@
         $email = $_REQUEST["email"];
         $senha = $_REQUEST["senha"];
         $confirmarSenha = $_REQUEST["confirmarSenha"];
+        // teste de criptografia.
+        // $hash = password_hash($senha, PASSWORD_DEFAULT);
+        // echo $hash;
+        // exit;
         // verificar se a senha é igual ao confirmar senha
         if($senha == $confirmarSenha) {
+            // criptografando a senha
+            $senhaCrip = password_hash($senha, PASSWORD_DEFAULT);
         // criar novo usuário
         $novoUsuario = [
             "nome" => $nome,
             "email" => $email,
-            "senha" => $senha
+            "senha" => $senhaCrip
         ];
         // cadastro meu usuario no json
         $cadastrou = cadastrarUsuario($novoUsuario);
@@ -56,7 +62,7 @@
             </div>
             <div class="col-md-12">
                 <button class="btn btn-primary" type="submit">Cadastrar</button>
-                <a href="login.php" class="col-md-offset-9">Fazer Login!</a>
+                <a href="login.php" class="col-md-offset-9">Fazer Login.</a>
             </div>
         </form>
     </div>
