@@ -1,4 +1,5 @@
 <?php 
+    require "req/database.php";
     require "req/funcoeslogin.php";
     include "inc/head.php";
 
@@ -7,12 +8,17 @@
         $email = $_REQUEST["email"];
         $senha = $_REQUEST["senha"];
         // verificando se o usuario esta logado através da função
-        $estaLogado = logarUsuario($email, $senha);
+        $infoLogado = logarUsuario($email, $senha);
 
-        if ($estaLogado == true){
+        if ($infoLogado == true){
+            session_start();
+            $_SESSION["nome"] = $infoLogado['nomeUsuario'];
+            $_SESSION["email"] = $email;
+            $_SESSION["nivelAcesso"] = $infoLogado['tipoUsuario'];
+            $_SESSION["logado"] = true;
             header("location: index.php");
         } else {
-            $erro = "Seu usuario não foi encontrado";
+            $erro = "Usuario ou senha está errado";
         }
     }
 ?>
