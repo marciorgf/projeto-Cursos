@@ -1,6 +1,8 @@
 <?php 
   
     function cadastrarUsuario($usuario) {
+
+        
         try {
             global $conexao;
             $query = $conexao->prepare("INSERT INTO usuarios(nome, email, senha, tipo_usuario_fk) values (:nome, :email, :senha, 3)"); //adiciona
@@ -23,6 +25,9 @@
     }
 
     function logarUsuario($email, $senha) {
+
+        $infoLogado = false;
+
        try{
             global $conexao;
 
